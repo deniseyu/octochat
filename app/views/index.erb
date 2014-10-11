@@ -1,5 +1,15 @@
 <a href='/users/new'>Are you new here?</a>
-<br>Welcome, <%= @users.first.realname %>!
+<br>
+<% if current_user %>
+  Welcome, <%= @users.first.realname %>!
+
+    <form method="post" action="/sessions">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out">
+    </form>
+
+<% end %>
+ 
 
 Latest peeps:
 

@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative 'helpers/user_helpers'
+
+  include UserHelpers
 
 feature 'New user' do 
 
@@ -35,17 +38,36 @@ feature 'New user' do
 
 end
 
-def sign_up(username = "Nemo123",
-            realname = "Nemo",
-            email = "lost@sea.com",
-            password = "help",
-            password_confirmation = "help")
-  visit '/users/new'
-  expect(page.status_code).to eq 200 
-  fill_in :username, :with => username
-  fill_in :realname, :with => realname
-  fill_in :email, :with => email
-  fill_in :password, :with => password 
-  fill_in :password_confirmation, :with => password_confirmation
-  click_button 'Sign up'
+feature 'Existing user' do 
+
+  before(:each) do 
+    User.create(:username => "Nemo123",
+                :realname => "Nemo",
+                :email => "lost@sea.com",
+                :password => "help",
+                :password_confirmation => "help")
+    end
+
+  scenario 'can sign in with the correct password' do 
+    visit '/'
+    expect(page).not_to have_content "Welcome, Nemo!"
+    sign_in("lost@sea.com", "help")
+    expect(page).to have_content "Welcome, Nemo!"
+  end
+
+  scenario 'cannot sign in with a wrong password' do 
+    visit '/'
+    sign_in("lost@sea.com", "kelp")
+    expect(page).to have_content "password is incorrect"
+  end
+
+  scenario 'can sign out' do 
+    sign_in("lost@sea.com", "help")
+    click_button "Sign out"
+    expect(page).to have_content("Good bye!")
+    expect(page).not_to have_content("Welcome, test@test.com")
+  end
+
+
 end
+
