@@ -47,7 +47,7 @@ end
 post '/sessions' do 
   email, password = params[:email], params[:password]
   user = User.authenticate(email, password)
-  if user 
+  if user
     session[:user_id] = user.id 
     redirect '/'
   else

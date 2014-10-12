@@ -19,7 +19,7 @@ feature 'Users who are logged in' do
     sign_in 
     new_post 
     expect(page).to have_content "Fish are friends, not food!"
-    expect(page).to have_content "by Nemo"
+    expect(page).to have_content "Nemo"
   end
 
   scenario 'should not be able to execute HTML via posts' do 
