@@ -7,7 +7,8 @@ class Post
   property :id,         Serial
   property :content,    String
   property :created_at, DateTime
-  property :author,     String
+  property :username,   String
+  property :realname,   String
 
   has 1, :user, :through => Resource
 

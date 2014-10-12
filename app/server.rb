@@ -65,7 +65,8 @@ end
 post '/posts' do 
   @current_user = 
   @post = Post.create(:content => params[:content],
-                      :author => params[:author])
+                      :username => params[:username],
+                      :realname => params[:realname])
   @post.save
   redirect to '/'
 end
