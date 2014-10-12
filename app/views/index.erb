@@ -17,10 +17,10 @@
 <% end %>
  
 
-Latest peeps:
+Latest news:
 
 <ul>
-<% @posts.each do |post| %>
-<li><%= post.content %>, posted at <%= post.created_at %> by <%= post.author %></li>
+<% @posts.reverse.each do |post| %>
+<li><%=h post.content %>, posted at <%= post.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %> by <%= post.author %></li>
 <% end %>
 </ul>
