@@ -1,27 +1,15 @@
-<a href='/users/new'>Are you new here?</a>
+<div class='headline'>Latest news</div>
+
 <br>
-<% if current_user %>
-  Welcome, <%= current_user.realname %>!
-
-    <form method="post" action="/sessions">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Sign out">
-    </form>
-
-    <form method="post" action="/posts">
-      <input type="text" name="content">
-      <input type="hidden" name="username" value="<%= current_user.username %>">
-      <input type="hidden" name="realname" value="<%= current_user.realname %>">
-      <input type="submit" value="Post">
-    </form>
-
-<% end %>
- 
-
-Latest news:
-
-<ul>
 <% @posts.reverse.each do |post| %>
-<li><%=h post.content %>, posted at <%= post.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %> by <%= post.realname %> (<%= post.username %>)</li>
+
+<div class='post'>
+  <p class='post_author'><%= post.realname %> 
+  (<%= post.username %>)</p>
+  <p class='post_main'>
+  <%=h post.content %></p> 
+  <p class='post_footer'>Reply | Posted at <%= post.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %></p>
+</div>
+<br>
 <% end %>
-</ul>
+
