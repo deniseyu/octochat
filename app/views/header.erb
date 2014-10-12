@@ -1,33 +1,3 @@
 <header>
-    <a href="/"><img src='/images/totoro_banner.jpg'></a>
-  <div id="user-links">    
-    <% if current_user %>
-      <div class="logo">
-      </div>
-      <div class="welcome-message">
-      Welcome, <%= current_user.realname %>!
-      <form method="post" action="/sessions">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign out">
-      </form>
-    </div>
-
-    <div class='post_update'>
-      What's on your mind?
-      <form method="post" action="/posts">
-        <input type="text" name="content" autocomplete='off'id='submit_form'>
-        <input type="hidden" name="username" value="<%= current_user.username %>">
-        <input type="hidden" name="realname" value="<%= current_user.realname %>">
-        <input type="submit" value="Post!" id='submit_button'>
-      </form>
-    </div>
-
-    <% else %>
-    <div class="sign_in">
-      <a href='/users/new' id='sign-up' class='button'>Sign up</a> | 
-      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>  
-    </div>    
-    <% end %>
-
-  </div>
+    <img src='/images/totoro_top.png' width='100%'>
 </header>

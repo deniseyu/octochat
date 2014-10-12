@@ -7,13 +7,17 @@
         <title>Octochat</title>
     </head>
     <body>
-      <div class='all'>
-  
-        <%= partial :header %>
-        <%= partial :flash %>
+      <%= partial :header %>
 
+      <div class='all'>
+        
+        <%= partial :post_update %>
+        <%= partial :flash %>
         <%= yield %>
 
       </div>
+
+      <%= partial :footer %>
+
     </body>
 </html>

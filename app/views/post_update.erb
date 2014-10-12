@@ -1,0 +1,29 @@
+<post_update>
+
+    <% if current_user %>
+      <div class="welcome-message">
+      Welcome, <%= current_user.realname %>!
+      <form method="post" action="/sessions">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out" id='sign_out_button'>
+      </form>
+    </div>
+
+    <div class='post_update'>
+      <br><form method="post" action="/posts">
+        <input type="text" name="content" autocomplete='off'id='submit_form' placeholder="What's on your mind?">
+        <input type="hidden" name="username" value="<%= current_user.username %>">
+        <input type="hidden" name="realname" value="<%= current_user.realname %>">
+        <input type="submit" value="Post!" id='submit_button'>
+      </form>
+    </div>
+
+    <% else %>
+    <div class="sign_in">
+      <a href='/'>Home</a> | 
+      <a href='/users/new' id='sign-up' class='button'>Sign up</a> | 
+      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>  
+    </div>    
+    <% end %>
+
+</post_update>
