@@ -66,6 +66,10 @@ div.post_update {
   padding: 15px;
 }
 
+div.sign_in_page {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
 #submit_form {
   padding: 5px;
   width: 600px;
@@ -78,9 +82,33 @@ div.post_update {
   width: 60px;
   height: 40px;
   border-width: 0px;
+  border-radius: 10px;
   font-size: 14px;
   background-color: #76B4D9;
 }
+
+#sign_in_form {
+  padding: 10px;
+  margin-left: 10px;
+  width: 700px;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+#sign_in_button {
+  width: 80px;
+  height: 40px;
+  border-width: 0px;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: #76B4D9;
+  text-align: center;
+  color: white;
+  margin-left: 650px;
+  margin-bottom: 10px;
+}
+
 
 p.post_author {
   font-size: 16px;
@@ -92,6 +120,8 @@ p.post_author {
 p.post_main {
   font-size: 14px;
   padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 p.post_footer {

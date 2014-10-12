@@ -15,7 +15,7 @@
     <div class='post_update'>
       What's on your mind?
       <form method="post" action="/posts">
-        <input type="text" name="content" id='submit_form'>
+        <input type="text" name="content" autocomplete='off'id='submit_form'>
         <input type="hidden" name="username" value="<%= current_user.username %>">
         <input type="hidden" name="realname" value="<%= current_user.realname %>">
         <input type="submit" value="Post!" id='submit_button'>
