@@ -132,3 +132,11 @@ p.post_footer {
   font-size: 10px;
   text-align: right;
 }
+
+p.footer {
+  font-size: 10px;
+  font-style: italic;
+  font-weight: lighter;
+  text-align: center;
+  padding: 1%;
+}
