@@ -1,7 +1,7 @@
 require 'spec_helper'
 require_relative 'helpers/user_helpers'
 
-  include UserHelpers
+include UserHelpers
 
 feature 'New user' do 
 
@@ -65,9 +65,7 @@ feature 'Existing user' do
     sign_in("lost@sea.com", "help")
     click_button "Sign out"
     expect(page).to have_content("Good bye!")
-    expect(page).not_to have_content("Welcome, test@test.com")
+    expect(page).not_to have_content("Welcome, Nemo!")
   end
 
-
 end
-

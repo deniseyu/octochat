@@ -4,6 +4,7 @@ require 'rack-flash'
 require 'sinatra/partial'
 
 require_relative 'models/user'
+require_relative 'models/post'
 require_relative 'datamapper_helper'
 require_relative 'helpers/application'
 enable :sessions
@@ -14,6 +15,7 @@ set :partial_template_engine, :erb
 
 get '/' do 
   @users = User.all
+  @posts = Post.all 
   erb :index
 end
 
@@ -59,3 +61,14 @@ delete '/sessions' do
   session[:user_id] = nil
   redirect to('/')
 end
+
+post '/posts' do 
+  @current_user = 
+  @post = Post.create(:content => params[:content],
+                      :author => params[:author])
+  @post.save
+  redirect to '/'
+end
+
+
+

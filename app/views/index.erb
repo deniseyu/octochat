@@ -1,11 +1,17 @@
 <a href='/users/new'>Are you new here?</a>
 <br>
 <% if current_user %>
-  Welcome, <%= @users.first.realname %>!
+  Welcome, <%= current_user.realname %>!
 
     <form method="post" action="/sessions">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Sign out">
+    </form>
+
+    <form method="post" action="/posts">
+      <input type="text" name="content">
+      <input type="hidden" name="author" value="<%= current_user.username %>">
+      <input type="submit" value="Post">
     </form>
 
 <% end %>
@@ -13,6 +19,8 @@
 
 Latest peeps:
 
-Hello 
-
-Goodbye
+<ul>
+<% @posts.each do |post| %>
+<li><%= post.content %>, posted at <%= post.created_at %> by <%= post.author %></li>
+<% end %>
+</ul>
