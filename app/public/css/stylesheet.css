@@ -71,9 +71,22 @@ div.sign_in_page {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+div.reply_box {
+
+}
+
 #submit_form {
   padding: 5px;
   width: 88%;
+  height: 25px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+#reply_form {
+  padding: 5px;
+  margin-left: 5%;
+  width: 80%;
   height: 25px;
   font-size: 14px;
   border-radius: 5px;
