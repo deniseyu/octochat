@@ -1,8 +1,8 @@
 Original post:
 
 <div class='post'>
-<p class='reply_author'><%= @post.username %> wrote:</p>
-<p class='reply_main'><%= @post.content %></p>
+<p class='reply_author'><%=h @post.username %> wrote:</p>
+<p class='reply_main'><%=h @post.content %></p>
 </div>
 <br>
 <div class='reply_box'>
