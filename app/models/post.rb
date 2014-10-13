@@ -11,5 +11,6 @@ class Post
   property :realname,   String
 
   has 1, :user, :through => Resource
+  has n, :replies, :through => Resource 
 
 end

@@ -1,0 +1,11 @@
+Original post:
+
+<%= @post.content %>
+
+<form action='/posts/reply/:id' method='POST'>
+  <input type='text' placeholder='Reply to this post' name='reply_content'>
+  <input type="hidden" name="username" value="<%= current_user.username %>">
+  <input type="hidden" name="realname" value="<%= current_user.realname %>">
+  <input type="hidden" name="post_id" value="<%= @post.id %>">
+  <input type='submit' value='Post'>
+</form>

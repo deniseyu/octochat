@@ -1,6 +1,7 @@
 <div class='headline'>Latest news</div>
 
 <br>
+
 <% @posts.reverse.each do |post| %>
 
 <div class='post'>
@@ -8,8 +9,28 @@
   (<%= post.username %>)</p>
   <p class='post_main'>
   <%=h post.content %></p> 
-  <p class='post_footer'>Reply | Posted at <%= post.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %></p>
+  <p class='post_footer'>
+    <% if current_user %>
+    <a href='/posts/reply/<%= post.id %>'>Reply</a>
+    <% end %> 
+    | Posted at <%= post.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %></p>
 </div>
+
+  <% @replies.each do |reply| %>
+
+    <% if reply.post_id == post.id %>
+      <div class="reply">
+      <p class="reply_author"><%= reply.realname %> (<%= reply.username %>) replied:</p>  
+      <p class="reply_main"><%= reply.reply_content %></p>
+      <p class="post_footer">Posted at <%= reply.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %></p>
+      </div>
+    <% end %>
+      
+
+  <% end %>
+
 <br>
 <% end %>
+
+
 

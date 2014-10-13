@@ -28,6 +28,20 @@ feature 'Users who are logged in' do
     expect(page).to have_content "<img src='http://i.imgur.com/yOxuiQ2.jpg'>"
   end
 
+  scenario 'can reply to other posts' do 
+    sign_in 
+    new_post
+    expect(page).to have_content "Welcome"
+    click_link 'Reply'
+    fill_in 'reply_content', :with => "I agree"
+    click_button 'Post'
+    expect(page).to have_content "I agree"
+  end
+
+  scenario 'cannot reply unless signed in' do 
+    visit '/'
+    expect(page).not_to have_content "Reply"
+  end
 
   
 end

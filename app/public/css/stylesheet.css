@@ -43,10 +43,21 @@ div.headline {
 
 div.post {
   width: 90%;
+  margin-top: 10px;
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
   border: #D8BBA6 solid 2px;
+  border-radius: 10px;
+}
+
+div.reply {
+  margin-top: 10px;
+  width: 90%;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  border: #76A653 solid 2px;
   border-radius: 10px;
 }
 
@@ -58,9 +69,6 @@ div.post_update {
 
 div.sign_in_page {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
-
-div.footer {
 }
 
 #submit_form {
@@ -120,11 +128,26 @@ p.post_author {
   padding: 10px;
 }
 
+p.reply_author {
+  font-size: 14px;
+  color: #7181A6;
+  font-weight: bold;
+  padding: 5px;
+}
+
 p.post_main {
   font-size: 14px;
   padding-left: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
+  text-align: left;
+}
+
+p.reply_main {
+  font-size: 12px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   text-align: left;
 }
 

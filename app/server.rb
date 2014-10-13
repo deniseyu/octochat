@@ -5,6 +5,7 @@ require 'sinatra/partial'
 
 require_relative 'models/user'
 require_relative 'models/post'
+require_relative 'models/reply'
 require_relative 'datamapper_helper'
 require_relative 'helpers/application'
 enable :sessions
@@ -16,6 +17,7 @@ set :partial_template_engine, :erb
 get '/' do 
   @users = User.all
   @posts = Post.all 
+  @replies = Reply.all
   erb :index
 end
 
@@ -62,8 +64,7 @@ delete '/sessions' do
   redirect to('/')
 end
 
-post '/posts' do 
-  @current_user = 
+post '/posts/new' do 
   @post = Post.create(:content => params[:content],
                       :username => params[:username],
                       :realname => params[:realname])
@@ -71,5 +72,18 @@ post '/posts' do
   redirect to '/'
 end
 
+get '/posts/reply/:id' do 
+  @post = Post.first(:id => params[:id])
+  erb :"posts/new_reply"
+end
 
+post '/posts/reply/:id' do
+  @post = Post.first(:id => params[:id])
+  @reply = Reply.create(:reply_content => params[:reply_content],
+                        :username => params[:username],
+                        :realname => params[:realname],
+                        :post_id => params[:post_id])
+  @reply.save
+  redirect to '/'
+end
 
