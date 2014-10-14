@@ -15,9 +15,7 @@ set :partial_template_engine, :erb
 
 
 get '/' do 
-  @users = User.all
   @posts = Post.all 
-  @replies = Reply.all
   erb :index
 end
 
@@ -66,24 +64,23 @@ end
 
 post '/posts/new' do 
   @post = Post.create(:content => params[:content],
-                      :username => params[:username],
-                      :realname => params[:realname])
-  @post.save
+                      :user_id => current_user.id)
   redirect to '/'
 end
 
 get '/posts/reply/:id' do 
+  if !current_user
+    redirect '/sessions/new'
+  else
   @post = Post.first(:id => params[:id])
   erb :"posts/new_reply"
+  end
 end
 
 post '/posts/reply/:id' do
-  @post = Post.first(:id => params[:id])
-  @reply = Reply.create(:reply_content => params[:reply_content],
-                        :username => params[:username],
-                        :realname => params[:realname],
+  reply = Reply.create(:content => params[:content],
+                        :user_id => current_user.id,
                         :post_id => params[:post_id])
-  @reply.save
   redirect to '/'
 end
 

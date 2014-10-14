@@ -33,7 +33,7 @@ feature 'Users who are logged in' do
     new_post
     expect(page).to have_content "Welcome"
     click_link 'Reply'
-    fill_in 'reply_content', :with => "I agree"
+    fill_in 'content', :with => "I agree"
     click_button 'Post'
     expect(page).to have_content "I agree"
   end

@@ -6,7 +6,6 @@ module UserHelpers
             password = "help",
             password_confirmation = "help")
     visit '/users/new'
-    expect(page.status_code).to eq 200 
     fill_in :username, :with => username
     fill_in :realname, :with => realname
     fill_in :email, :with => email

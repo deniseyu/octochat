@@ -1,16 +1,14 @@
 Original post:
 
 <div class='post'>
-<p class='reply_author'><%=h @post.username %> wrote:</p>
+<p class='reply_author'><%=h @post.user.username %> wrote:</p>
 <p class='reply_main'><%=h @post.content %></p>
 </div>
 <br>
 <div class='reply_box'>
-<form action='/posts/reply/:id' method='POST'>
-  <input type='text' placeholder='Reply to this post' name='reply_content' id='reply_form'>
-  <input type="hidden" name="username" value="<%= current_user.username %>">
-  <input type="hidden" name="realname" value="<%= current_user.realname %>">
-  <input type="hidden" name="post_id" value="<%= @post.id %>">
+<form action='/posts/reply/:id' method='post'>
+  <input type='text' placeholder='Reply to this post' name='content' id='reply_form'>
+  <input type='hidden' name='post_id' value='<%= @post.id %>'>
   <input type='submit' value='Post' id='submit_button'>
 </form>
 </div>

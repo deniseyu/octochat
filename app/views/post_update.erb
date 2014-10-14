@@ -5,8 +5,6 @@
     <div class='post_update'>
       <br><form method="post" action="/posts/new">
         <input type="text" name="content" autocomplete='off'id='submit_form' placeholder="What's on your mind?">
-        <input type="hidden" name="username" value="<%= current_user.username %>">
-        <input type="hidden" name="realname" value="<%= current_user.realname %>">
         <input type="submit" value="Post!" id='submit_button'>
       </form>
     </div>

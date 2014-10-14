@@ -14,7 +14,8 @@ class User
   property :email,      String, :unique => true
   property :password_digest,  Text
 
-  has n, :posts, :through => Resource
+  has n, :posts
+  has n, :replies
 
   validates_confirmation_of :password 
   validates_uniqueness_of :email 

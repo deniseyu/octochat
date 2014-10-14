@@ -4,32 +4,33 @@
 <% @posts.reverse.each do |post| %>
 
 <div class='post'>
-  <p class='post_author'><%= post.realname %> 
-  (<%=h post.username %>)</p>
+  <p class='post_author'>
+    <%=h post.user.realname %>
+    (<%=h post.user.username %>)</p>
+  
   <p class='post_main'>
   <%=h post.content %></p> 
+  
   <p class='post_footer'>
-    <% if current_user %>
+  <% if current_user %> 
     <a href='/posts/reply/<%= post.id %>'>Reply</a>
-    <% end %> 
-    | Posted at <%= post.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %></p>
+  <% end %>
+    | Posted at <%= post.created_at.asctime %></p>
 </div>
 
-  <% @replies.each do |reply| %>
+<div class='reply'>
 
-    <% if reply.post_id == post.id %>
-      <div class="reply">
-      <p class="reply_author"><%= reply.realname %> (<%=h reply.username %>) replied:</p>  
-      <p class="reply_main"><%=h reply.reply_content %></p>
-      <p class="post_footer">Posted at <%= reply.created_at.to_s.chars[0..15].each_slice(10).to_a.rotate.flatten.drop(1).insert(5, " ").join %></p>
-      </div>
-    <% end %>
-      
+<% post.replies.each do |reply| %>
 
-  <% end %>
-
-<br>
+<p class='post_author'><%=h reply.user.username %> 
+(<%=h reply.user.realname %>)</p>
+  <p class='reply_main'><%=h reply.content %></p>
+  <p class='post_footer'><%= reply.created_at.asctime %></p>
 <% end %>
 
+</div>
 
 
+
+
+ <% end %>
