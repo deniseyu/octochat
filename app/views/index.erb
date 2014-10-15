@@ -18,17 +18,18 @@
     | Posted at <%= post.created_at.asctime %></p>
 </div>
 
-<div class='reply'>
 
 <% post.replies.each do |reply| %>
+<div class='reply'>
 
 <p class='post_author'><%=h reply.user.username %> 
 (<%=h reply.user.realname %>)</p>
   <p class='reply_main'><%=h reply.content %></p>
   <p class='post_footer'><%= reply.created_at.asctime %></p>
+</div>
+
 <% end %>
 
-</div>
 
 
 
