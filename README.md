@@ -15,7 +15,7 @@ When using Chitter, a user can:
 
 ## Preview
 
-![meow](https://raw.github.com/deniseyu/octochat/master/public/images/screenshot.png)
+![meow](https://raw.github.com/deniseyu/octochat/master/app/public/images/screenshot.png)
 
 ## To Use
 
