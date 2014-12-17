@@ -43,3 +43,10 @@ To test, run 'rspec' from the command line.
 * BCrypt
 * HTML5
 * CSS3
+
+## Learning Objectives
+
+* Behavior-driven testing in Capybara/RSpec
+* User interface and front-end design
+* Relational databases with a object-relational mapper
+* User login handling in Sinatra and BCrypt
