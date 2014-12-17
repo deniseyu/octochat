@@ -9,9 +9,11 @@ gem 'bcrypt-ruby'
 gem 'sinatra-partial'
 gem 'rack-flash3'
 
-group :development, :test do 
+group :development, :test do
   gem 'rspec'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem "codeclimate-test-reporter", require: nil
+  gem 'rake'
 end

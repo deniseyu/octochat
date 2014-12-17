@@ -3,7 +3,7 @@
 
 ## Overview
 
-This web app was built during Week 5 of Makers Academy. It is [deployed on Heroku](https://totoro-chitter.herokuapp.com).
+This web app was built during Week 4 of Makers Academy. It is [deployed on Heroku](https://totoro-chitter.herokuapp.com).
 
 Chitter is a public stream of 'peeps' -- short, 140-or-fewer-character-long messages broadcasted to the world. It may slightly resemble a popular social networking tool known as Twitter.
 
