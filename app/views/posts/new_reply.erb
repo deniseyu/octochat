@@ -1,14 +1,13 @@
-Original post:
-
-<div class='post'>
-<p class='reply_author'><%=h @post.user.username %> wrote:</p>
-<p class='reply_main'><%=h @post.content %></p>
-</div>
+<h3 class='reply-header'>Original post</h3>
+<section class='post'>
+  <p class='reply_author'><%=h @post.user.username %> wrote:</p>
+  <p class='reply_main'><%=h @post.content %></p>
+</section>
 <br>
 <div class='reply_box'>
-<form action='/posts/reply/:id' method='post'>
-  <input type='text' placeholder='Reply to this post' name='content' id='reply_form'>
-  <input type='hidden' name='post_id' value='<%= @post.id %>'>
-  <input type='submit' value='Post' id='submit_button'>
-</form>
+  <form action='/posts/reply/:id' method='post'>
+    <input type='text' placeholder='Reply to this post' name='content' id='reply_form'>
+    <input type='hidden' name='post_id' value='<%= @post.id %>'>
+    <input type='submit' value='Post' id='submit_button'>
+  </form>
 </div>

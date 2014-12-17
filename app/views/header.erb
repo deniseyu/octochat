@@ -1,3 +1,18 @@
-<header>
-    <img src='/images/totoro_top.png' width='100%'>
+<header class='page-header' id='nav-bar'>
+  <a href='/'><img src='/images/home.png' id='home-icon'></a>
+  <nav id='session-buttons-container'>
+  <% if current_user %>
+    <form method="post" action="/sessions" id='top-right-form'>
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Sign out" id='sign-out-button'>
+    </form>
+  <% else %>
+    <a href='/users/new'>
+      <nav id='sign-up-button'>Sign up</nav>
+    </a>
+    <a href='/sessions/new'>
+      <nav id='sign-in-button'>Sign in</nav>
+    </a>
+  <% end %>
+  </nav>
 </header>

@@ -1,37 +1,37 @@
-<div class='headline'>Latest news</div>
+<h1 class='headline'>Latest news</h1>
 <%= partial :post_update %>
 <br><br>
 <% @posts.reverse.each do |post| %>
 
-<div class='post'>
-  <p class='post_author'>
-    <%=h post.user.realname %>
-    (<%=h post.user.username %>)</p>
-  
-  <p class='post_main'>
-  <%=h post.content %></p> 
-  
-  <p class='post_footer'>
-  <% if current_user %> 
-    <a href='/posts/reply/<%= post.id %>'>Reply</a>
-  <% end %>
-    | Posted at <%= post.created_at.asctime %></p>
-</div>
+<section class='post-and-replies'>
 
+  <section class='post'>
+    <p class='post_author'>
+      <%=h post.user.realname %>
+      (<%=h post.user.username %>)</p>
 
-<% post.replies.each do |reply| %>
-<div class='reply'>
+    <p class='post_main'>
+    <%=h post.content %></p>
 
-<p class='post_author'><%=h reply.user.username %> 
-(<%=h reply.user.realname %>)</p>
-  <p class='reply_main'><%=h reply.content %></p>
-  <p class='post_footer'><%= reply.created_at.asctime %></p>
-</div>
+    <p class='post_footer'>
+    <% if current_user %>
+      <a href='/posts/reply/<%= post.id %>'>Reply</a>
+    <% end %>
+      | Posted at <%= post.created_at.strftime("%I:%M%p on %d/%m/%Y") %></p>
+  </section>
+
+  <% post.replies.each do |reply| %>
+  <section class='reply' class='hidden'>
+    <p class='post_author'><%=h reply.user.username %>
+    (<%=h reply.user.realname %>)</p>
+    <p class='reply_main'><%=h reply.content %></p>
+    <p class='post_footer'>
+      Posted at <%= post.created_at.strftime("%I:%M%p on %d/%m/%Y") %>
+    </p>
+  </section>
+
+</section>
 
 <% end %>
 
-
-
-
-
- <% end %>
+<% end %>

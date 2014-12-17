@@ -1,19 +1,16 @@
-<div class="headline"> 
-
- <% if flash[:errors] && !flash[:errors].empty? %> 
+<% if flash[:errors] || flash[:notice] %>
+<section class='headline'>
+  <% if flash[:errors] && !flash[:errors].empty? %>
     Sorry, there were the following problems with the form.
     <ul id="errors">
       <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
+        <li><%= error %></li>
       <% end %>
     </ul>
   <% end %>
 
   <% if flash[:notice] %>
-    <div id="notice">
-      <%= flash[:notice] %>
-    </div>
+    <%= flash[:notice] %>
   <% end %>
-
-</div>
-<br><br>
+</section>
+<% end %>

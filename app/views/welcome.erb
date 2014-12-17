@@ -1,17 +1,5 @@
 <welcome>
 
-  <div class="welcome-message">
-  <a href='/'>Home</a> | 
-    <% if current_user %>
-      Welcome, <%= current_user.realname %>!
-      <form method="post" action="/sessions">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Sign out" id='sign_out_button'>
-      </form>
-    <% else %>
-      <a href='/users/new' id='sign-up' class='button'>Sign up</a> | 
-      <a href='/sessions/new' id='sign-in' class='button'>Sign in</a>  
-    <% end %>
-    </div>
+
 
 </welcome>

@@ -1,25 +1,23 @@
 <!doctype html>
 <html>
-    <head>
-        <link href="/css/reset.css" type="text/css" rel="stylesheet" />
-        <link href="/css/stylesheet.css" type="text/css" rel="stylesheet" />
-        <meta charset="utf-8">
-        <title>Octochat</title>
-    </head>
-    <body>
-        
-        <%= partial :header %>
-        <%= partial :welcome %>
+  <head>
+    <link href="/css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="/css/stylesheet.css" type="text/css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Pacifico|Varela+Round' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <title>Octochat</title>
+  </head>
+  <body>
+    <%= partial :header %>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <main class='all'>
+      <%= yield %>
+    </main>
+    <%= partial :footer %>
 
-      <div class='all'>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/app.js"></script>
 
-        <%= partial :flash %>
-
-        <%= yield %>
-
-      </div>
-
-      <%= partial :footer %>
-
-    </body>
+  </body>
 </html>
